@@ -10,9 +10,12 @@ SettingPageTypeOne::SettingPageTypeOne(QWidget *parent) :
 
 
 
-    connect(ui->addPageButton, &QPushButton::clicked, parent, &SettingPageTypeOne::show);
-    connect(ui->addPageButton, &QPushButton::clicked, this, &SettingPageTypeOne::close);
-    connect(ui->finishButton, &QPushButton::clicked, this, &SettingPageTypeOne::deleteLater);
+    connect(ui->addPageButton, &QPushButton::clicked,
+            parent, &SettingPageTypeOne::show);
+    connect(ui->addPageButton, &QPushButton::clicked,
+            this, &SettingPageTypeOne::deleteLater);
+    connect(ui->finishButton, &QPushButton::clicked,
+            this, &SettingPageTypeOne::deleteLater);
 }
 
 SettingPageTypeOne::~SettingPageTypeOne()

@@ -25,7 +25,7 @@ void SelectPageType::on_nextButton_clicked()
         hide();
 
     } else if (ui->type2Radio->isChecked() == true) {
-        SettingPageTypeTwo *page = new SettingPageTypeTwo;
+        SettingPageTypeTwo *page = new SettingPageTypeTwo(this);
         page->show();
         close();
     }

@@ -30,3 +30,5 @@
 *.exe
 *.out
 *.app
+
+Recipe_book/cmake-build-debug/

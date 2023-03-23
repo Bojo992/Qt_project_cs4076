@@ -18,6 +18,9 @@ public:
 
 
 
+private slots:
+    void on_quiteOption_triggered();
+
 private:
     Ui::MainWindow *ui;
 

@@ -41,7 +41,7 @@
      <string>Options</string>
     </property>
     <addaction name="actionSettings"/>
-    <addaction name="actionQuite"/>
+    <addaction name="quiteOption"/>
    </widget>
    <addaction name="menuOptions"/>
   </widget>
@@ -51,7 +51,7 @@
     <string>Settings</string>
    </property>
   </action>
-  <action name="actionQuite">
+  <action name="quiteOption">
    <property name="text">
     <string>Quite</string>
    </property>

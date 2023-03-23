@@ -27,7 +27,7 @@ class Ui_MainWindow
 {
 public:
     QAction *actionSettings;
-    QAction *actionQuite;
+    QAction *quiteOption;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QPushButton *addNewRecipeButton;
@@ -43,8 +43,8 @@ public:
         MainWindow->resize(800, 600);
         actionSettings = new QAction(MainWindow);
         actionSettings->setObjectName("actionSettings");
-        actionQuite = new QAction(MainWindow);
-        actionQuite->setObjectName("actionQuite");
+        quiteOption = new QAction(MainWindow);
+        quiteOption->setObjectName("quiteOption");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
@@ -72,7 +72,7 @@ public:
 
         menubar->addAction(menuOptions->menuAction());
         menuOptions->addAction(actionSettings);
-        menuOptions->addAction(actionQuite);
+        menuOptions->addAction(quiteOption);
 
         retranslateUi(MainWindow);
 
@@ -83,7 +83,7 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         actionSettings->setText(QCoreApplication::translate("MainWindow", "Settings", nullptr));
-        actionQuite->setText(QCoreApplication::translate("MainWindow", "Quite", nullptr));
+        quiteOption->setText(QCoreApplication::translate("MainWindow", "Quite", nullptr));
         addNewRecipeButton->setText(QCoreApplication::translate("MainWindow", "PushButton", nullptr));
         menuOptions->setTitle(QCoreApplication::translate("MainWindow", "Options", nullptr));
     } // retranslateUi

@@ -45,3 +45,14 @@
 520	4661	7012732971626610	CMakeFiles/Recipe_book.dir/settingpagetypeone.cpp.obj	1ea0c1b764420499
 487	4715	7012732972120176	CMakeFiles/Recipe_book.dir/recipepagetypeone.cpp.obj	f530855fb5753cc9
 4715	5104	7012732975979125	Recipe_book.exe	52e62e338a2ed73f
+13	465	7012799156945940	Recipe_book_autogen/timestamp	6506b358cd18c9e3
+13	465	7012799156945940	Recipe_book_autogen/mocs_compilation.cpp	6506b358cd18c9e3
+13	465	7012799156945940	C:/GitHub/QT project/Recipe_book/cmake-build-debug/Recipe_book_autogen/timestamp	6506b358cd18c9e3
+13	465	7012799156945940	C:/GitHub/QT project/Recipe_book/cmake-build-debug/Recipe_book_autogen/mocs_compilation.cpp	6506b358cd18c9e3
+522	5066	7012799202922398	CMakeFiles/Recipe_book.dir/selectpagetype.cpp.obj	4ef3afeb6166c7b8
+512	5284	7012799205080308	CMakeFiles/Recipe_book.dir/settingpagetypetwo.cpp.obj	c947cebae0c4c12c
+504	5336	7012799205584222	CMakeFiles/Recipe_book.dir/settingpagetypeone.cpp.obj	1ea0c1b764420499
+496	5348	7012799205670389	CMakeFiles/Recipe_book.dir/mainwindow.cpp.obj	84eea2f715a7a580
+486	5412	7012799206422166	CMakeFiles/Recipe_book.dir/recipepagetypetwo.cpp.obj	f967bcd97c454824
+478	5534	7012799207656546	CMakeFiles/Recipe_book.dir/recipepagetypeone.cpp.obj	f530855fb5753cc9
+5535	6437	7012799216583301	Recipe_book.exe	52e62e338a2ed73f

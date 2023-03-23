@@ -31,7 +31,20 @@ set(PROJECT_SOURCES
         "settingpagetypeone.ui"
         "settingpagetypetwo.cpp"
         "settingpagetypetwo.h"
-        "settingpagetypetwo.ui")
+        "settingpagetypetwo.ui"
+        dist/jsoncpp.cpp
+        dist/json/json.h
+        dist/json/json-forwards.h
+        include/json/allocator.h
+        include/json/assertions.h
+        include/json/config.h
+        include/json/forwards.h
+        include/json/json.h
+        include/json/json_features.h
+        include/json/reader.h
+        include/json/value.h
+        include/json/version.h
+        include/json/writer.h)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Recipe_book

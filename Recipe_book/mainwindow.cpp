@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->recipeListWidget->addItem("test");
 
     SelectPageType *selectPageType = new SelectPageType();
     connect(ui->addNewRecipeButton, &QPushButton::clicked,

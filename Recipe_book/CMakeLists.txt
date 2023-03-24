@@ -15,23 +15,23 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
-        "mainwindow.h"
-        "mainwindow.ui"
+        mainwindow.h
+        mainwindow.ui
         recipepagetypeone.cpp
-        "recipepagetypeone.h"
-        "recipepagetypeone.ui"
+        recipepagetypeone.h
+        recipepagetypeone.ui
         recipepagetypetwo.cpp
-        "recipepagetypetwo.h"
-        "recipepagetypetwo.ui"
-        "selectpagetype.cpp"
-        "selectpagetype.h"
-        "selectpagetype.ui"
-        "settingpagetypeone.cpp"
-        "settingpagetypeone.h"
-        "settingpagetypeone.ui"
-        "settingpagetypetwo.cpp"
-        "settingpagetypetwo.h"
-        "settingpagetypetwo.ui"
+        recipepagetypetwo.h
+        recipepagetypetwo.ui
+        selectpagetype.cpp
+        selectpagetype.h
+        selectpagetype.ui
+        settingpagetypeone.cpp
+        settingpagetypeone.h
+        settingpagetypeone.ui
+        settingpagetypetwo.cpp
+        settingpagetypetwo.h
+        settingpagetypetwo.ui
         dist/jsoncpp.cpp
         dist/json/json.h
         dist/json/json-forwards.h
@@ -46,7 +46,7 @@ set(PROJECT_SOURCES
         include/json/version.h
         include/json/writer.h
         JsonReader.h
-        )
+        JsonWriter.h)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Recipe_book

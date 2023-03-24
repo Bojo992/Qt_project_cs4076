@@ -34,7 +34,7 @@ class Value;
  *  using namespace Json;
  *  void writeToStdout(StreamWriter::Factory const& factory, Value const& value)
  * { std::unique_ptr<StreamWriter> const writer( factory.newStreamWriter());
- *    writer->write(value, &std::cout);
+ *    writer->writeJson(value, &std::cout);
  *    std::cout << std::endl;  // add lf and flush
  *  }
  *  \endcode
@@ -83,7 +83,7 @@ String JSON_API writeString(StreamWriter::Factory const& factory,
 *   builder["indentation"] = "   ";  // or whatever you like
 *   std::unique_ptr<Json::StreamWriter> writer(
 *      builder.newStreamWriter());
-*   writer->write(value, &std::cout);
+*   writer->writeJson(value, &std::cout);
 *   std::cout << std::endl;  // add lf and flush
 *   \endcode
 */
@@ -115,7 +115,7 @@ public:
    *  - If true, outputs raw UTF8 strings instead of escaping them.
 
    *  You can examine 'settings_` yourself
-   *  to see the defaults. You can also write and read them just like any
+   *  to see the defaults. You can also writeJson and read them just like any
    *  JSON Value.
    *  \sa setDefaults()
    */
@@ -308,9 +308,9 @@ public:
 
 public:
   /** \brief Serialize a Value in <a HREF="http://www.json.org">JSON</a> format.
-   * \param out Stream to write to. (Can be ostringstream, e.g.)
+   * \param out Stream to writeJson to. (Can be ostringstream, e.g.)
    * \param root Value to serialize.
-   * \note There is no point in deriving from Writer, since write() should not
+   * \note There is no point in deriving from Writer, since writeJson() should not
    * return a value.
    */
   void write(OStream& out, const Value& root);

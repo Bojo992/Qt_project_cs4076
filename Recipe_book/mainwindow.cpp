@@ -32,6 +32,5 @@ void MainWindow::on_recipeListWidget_itemClicked(QListWidgetItem *item)
 {
     RecipePageTypeOne *recipePage = new RecipePageTypeOne(this);
     recipePage->show();
-    this->deleteLater();
 }
 

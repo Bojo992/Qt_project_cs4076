@@ -6,7 +6,7 @@
 #define RECIPE_BOOK_JSONWRITER_H
 
 class JsonWriter {
-    virtual void write() = 0;
+    virtual void writeJson() = 0;
 };
 
 #endif //RECIPE_BOOK_JSONWRITER_H

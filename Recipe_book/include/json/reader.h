@@ -329,7 +329,7 @@ public:
    *     it is skipped.
    *
    * You can examine 'settings_` yourself to see the defaults. You can also
-   * write and read them just like any JSON Value.
+   * writeJson and read them just like any JSON Value.
    * \sa setDefaults()
    */
   Json::Value settings_;

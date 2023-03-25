@@ -23,8 +23,8 @@ namespace handler {
 
     public:
 
-        JsonHandler* *getRecipe(string name) const;
-        Json::Value *getRecipesJson() const;
+    JsonHandler* getRecipe(std::string name) const;
+    Json::Value* getRecipesJson() const;
 
         void addRecipe(Json::Value *input);
     };

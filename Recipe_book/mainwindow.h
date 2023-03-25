@@ -3,6 +3,8 @@
 
 #include <QMainWindow>
 #include <QListWidgetItem>
+#include "recipe.h"
+#include <map>
 
 namespace Ui {
 class MainWindow;
@@ -13,8 +15,10 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr, std::map<std::string, Recipe>);
     ~MainWindow();
+    std::map<std::string, Recipe> recipes;
+
 
 private slots:
     void on_recipeListWidget_itemClicked(QListWidgetItem *item);

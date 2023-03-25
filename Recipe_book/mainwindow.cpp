@@ -3,13 +3,16 @@
 #include "selectpagetype.h"
 #include "recipepagetypeone.h"
 #include "recipepagetypetwo.h"
+#include "recipe.h"
+#include <map>
 
-MainWindow::MainWindow(QWidget *parent) :
+MainWindow::MainWindow(QWidget *parent, std::map<std::string, Recipe> test) :
     QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    ui(new Ui::MainWindow),
+    recipes(test)
 {
     ui->setupUi(this);
-    ui->recipeListWidget->addItem("test");
+    ui->recipeListWidget->addItem("recipes");
 
     SelectPageType *selectPageType = new SelectPageType();
     connect(ui->addNewRecipeButton, &QPushButton::clicked,
@@ -20,7 +23,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
 
 void MainWindow::on_quiteOption_triggered()
 {

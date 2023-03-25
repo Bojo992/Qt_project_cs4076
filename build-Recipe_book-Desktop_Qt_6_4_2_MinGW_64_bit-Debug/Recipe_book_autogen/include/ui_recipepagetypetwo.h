@@ -15,9 +15,9 @@
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -30,7 +30,7 @@ public:
     QHBoxLayout *buttonsLayout;
     QPushButton *backButton;
     QPushButton *nextButton;
-    QPlainTextEdit *recipeTextField;
+    QTextBrowser *recipeTextField;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -58,7 +58,7 @@ public:
 
         gridLayout->addLayout(buttonsLayout, 1, 0, 2, 2);
 
-        recipeTextField = new QPlainTextEdit(centralwidget);
+        recipeTextField = new QTextBrowser(centralwidget);
         recipeTextField->setObjectName("recipeTextField");
 
         gridLayout->addWidget(recipeTextField, 0, 0, 1, 1);

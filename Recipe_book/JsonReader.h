@@ -10,7 +10,7 @@ using namespace std;
 
 class JsonReader{
 public:
-    virtual void readJson(string path) = 0;
+    virtual void readJson() = 0;
 };
 
 #endif //RECIPE_BOOK_JSONREADER_H

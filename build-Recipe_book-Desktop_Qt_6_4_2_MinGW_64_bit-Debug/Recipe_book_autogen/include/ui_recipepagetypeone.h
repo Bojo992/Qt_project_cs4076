@@ -15,9 +15,9 @@
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPlainTextEdit>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -28,9 +28,9 @@ public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
     QGraphicsView *imageGraphicsView;
-    QPlainTextEdit *recipeTextField;
     QPushButton *backButton;
     QPushButton *nextButton;
+    QTextBrowser *recipeTextField;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -48,11 +48,6 @@ public:
 
         gridLayout->addWidget(imageGraphicsView, 0, 0, 1, 1);
 
-        recipeTextField = new QPlainTextEdit(centralwidget);
-        recipeTextField->setObjectName("recipeTextField");
-
-        gridLayout->addWidget(recipeTextField, 0, 1, 1, 1);
-
         backButton = new QPushButton(centralwidget);
         backButton->setObjectName("backButton");
 
@@ -62,6 +57,11 @@ public:
         nextButton->setObjectName("nextButton");
 
         gridLayout->addWidget(nextButton, 1, 1, 1, 1, Qt::AlignRight);
+
+        recipeTextField = new QTextBrowser(centralwidget);
+        recipeTextField->setObjectName("recipeTextField");
+
+        gridLayout->addWidget(recipeTextField, 0, 1, 1, 1);
 
         RecipePageTypeOne->setCentralWidget(centralwidget);
         menubar = new QMenuBar(RecipePageTypeOne);

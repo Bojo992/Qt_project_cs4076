@@ -30,8 +30,8 @@ public:
     QAction *quiteOption;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QPushButton *addNewRecipeButton;
     QListWidget *recipeListWidget;
+    QPushButton *addNewRecipeButton;
     QMenuBar *menubar;
     QMenu *menuOptions;
     QStatusBar *statusbar;
@@ -49,15 +49,15 @@ public:
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName("gridLayout");
-        addNewRecipeButton = new QPushButton(centralwidget);
-        addNewRecipeButton->setObjectName("addNewRecipeButton");
-
-        gridLayout->addWidget(addNewRecipeButton, 0, 0, 1, 1);
-
         recipeListWidget = new QListWidget(centralwidget);
         recipeListWidget->setObjectName("recipeListWidget");
 
         gridLayout->addWidget(recipeListWidget, 1, 0, 1, 1);
+
+        addNewRecipeButton = new QPushButton(centralwidget);
+        addNewRecipeButton->setObjectName("addNewRecipeButton");
+
+        gridLayout->addWidget(addNewRecipeButton, 0, 0, 1, 1);
 
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);

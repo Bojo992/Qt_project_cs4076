@@ -4941,7 +4941,7 @@ bool StyledStreamWriter::hasCommentForValue(const Value& value) {
 
 /// Scoped enums are not available until C++11.
 struct CommentStyle {
-  /// Decide whether to writeJson comments.
+  /// Decide whether to write comments.
   enum Enum {
     None, ///< Drop all comments.
     Most, ///< Recover odd behavior of previous versions (not implemented yet).
@@ -5198,7 +5198,7 @@ void BuiltStyledStreamWriter::writeCommentBeforeValue(Value const& root) {
   while (iter != comment.end()) {
     *sout_ << *iter;
     if (*iter == '\n' && ((iter + 1) != comment.end() && *(iter + 1) == '/'))
-      // writeIndent();  // would writeJson extra newline
+      // writeIndent();  // would write extra newline
       *sout_ << indentString_;
     ++iter;
   }

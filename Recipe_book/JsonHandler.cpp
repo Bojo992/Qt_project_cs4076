@@ -9,18 +9,22 @@
 #include <fstream>
 #include "dist/json/json.h"
 
-namespace Json {
-    class JsonHandler : JsonReader, JsonWriter {
-    public:
-        Value *recipesJson = new Value();
+namespace handler {
+        Json::Value *recipesJson = new Json::Value();
 
-        JsonHandler();
+        JsonHandler::JsonHandler(){
+            readJson();
+        };
 
-        ~JsonHandler() {
+        JsonHandler::JsonHandler(Json::Value input) {
+            recipesJson = &input;
+        }
+
+        JsonHandler::~JsonHandler() {
             delete recipesJson;
         };
 
-        void readJson(string path) override {
+        void JsonHandler::readJson() {
             ifstream input;
             input.open("recipe.json");
 
@@ -43,7 +47,7 @@ namespace Json {
             return;
         }
 
-        void writeJson() override {
+        void JsonHandler::writeJson()  {
             Json::FastWriter writer;
             const std::string json_file = writer.write(recipesJson);
             ofstream write;
@@ -54,8 +58,23 @@ namespace Json {
             write.close();
         }
 
-        Value* getRecipesJson() const {
+        void JsonHandler::addRecipe(Json::Value *input) {
+            recipesJson->append(input);
+            (*recipesJson)["number of recipes"] = 1;
+        }
+
+        Json::Value* JsonHandler::getRecipesJson() const {
             return recipesJson;
         }
+
+
+        JsonHandler* JsonHandler::getRecipe(std::string name) const {
+            if ((*recipesJson)[name] == NULL) {
+                return new JsonHandler((*recipesJson)[name]);
+            }
+
+            return NULL;
+        }
+
+
     };
-}

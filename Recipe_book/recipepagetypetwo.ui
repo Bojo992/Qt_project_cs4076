@@ -34,7 +34,7 @@
      </layout>
     </item>
     <item row="0" column="0">
-     <widget class="QPlainTextEdit" name="recipeTextField"/>
+     <widget class="QTextBrowser" name="recipeTextField"/>
     </item>
    </layout>
   </widget>

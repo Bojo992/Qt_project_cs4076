@@ -9,7 +9,6 @@
 #include <fstream>
 #include "dist/json/json.h"
 
-namespace handler {
         Json::Value *recipesJson = new Json::Value();
 
         JsonHandler::JsonHandler(){
@@ -75,6 +74,3 @@ namespace handler {
 
             return NULL;
         }
-
-
-    };

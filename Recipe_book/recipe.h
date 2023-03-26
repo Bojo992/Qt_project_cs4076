@@ -11,9 +11,10 @@ class Recipe {
 public:
     struct stepStruct{
         stepStruct();
-        stepStruct(std::string *step, int type, std::string *img = nullptr);
-        std::string step;
-        std::string img;
+        stepStruct(std::string *, std::string *, int);
+        ~stepStruct();
+        std::string *step;
+        std::string *img;
         int type;
     };
 
@@ -39,7 +40,7 @@ public:
     };
 
     Recipe();
-    Recipe(handler::JsonHandler*);
+    Recipe(JsonHandler*);
     ~Recipe();
 
     string *getName() const;
@@ -49,7 +50,7 @@ public:
     const vector<ingredient> &getIngredients() const;
     void addIngredient(float amount, int type, std::string name);
     void addName(std::string *name);
-    void addStep(std::string *step);
+    void addStep(std::string *step, int type, std::string *img = nullptr);
     void removeLastStep();
     Json::Value* asJson();
 

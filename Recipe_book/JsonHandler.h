@@ -10,23 +10,23 @@
 #include "JsonWriter.h"
 
 namespace handler {
-    class JsonHandler : JsonReader, JsonWriter {
-        JsonHandler();
+    class JsonHandler;
+}
+class JsonHandler : JsonReader, JsonWriter {
+public:
+    JsonHandler();
 
-        JsonHandler(Json::Value input);
+    JsonHandler(Json::Value input);
 
-        ~JsonHandler();
+    ~JsonHandler();
 
-        void writeJson();
+    void writeJson();
 
-        void readJson();
-
-    public:
+    void readJson();
 
     JsonHandler* getRecipe(std::string name) const;
     Json::Value* getRecipesJson() const;
 
-        void addRecipe(Json::Value *input);
-    };
-}
+    void addRecipe(Json::Value *input);
+};
 #endif //RECIPE_BOOK_JSONHANDLER_H

@@ -15,9 +15,9 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = nullptr, std::map<std::string, Recipe>);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    std::map<std::string, Recipe> recipes;
+    static std::map<std::string, Recipe> recipes;
 
 
 private slots:
@@ -26,6 +26,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+    static void addRecipe(std::string, Recipe*);
 };
 
 #endif // MAINWINDOW_H

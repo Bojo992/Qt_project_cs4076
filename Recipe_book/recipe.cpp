@@ -1,45 +1,26 @@
+#include "recipe.h"
 //
 // Created by Boris Bobylkov on 24/03/2023.
 //
 #include "JsonHandler.h"
+#include "recipe.h"
 #include <vector>
+Recipe::stepStruct::stepStruct(){}
+Recipe::stepStruct::stepStruct(std::string *img, std::string *step, int type) : step(step), img(img){
+    Recipe::stepStruct::type = type;
+}
 
-class Recipe {
-public:
-    struct stepStruct{
-        stepStruct(){};
-        stepStruct(std::string *step, int type, std::string *img = nullptr) : step(step), type(type), img(img){};
-        ~stepStruct(){
-            delete step;
-            delete img;
-        }
-        std::string *step;
-        std::string *img;
-        int type;
-    };
+Recipe::stepStruct::~stepStruct(){
+    delete step;
+    delete img;
+}
 
-    struct ingredient {
-    public:
-        union portion {
-            int mg;
-            int g;
-            float kg;
-            int ml;
-            float liters;
-            int spoon;
-            int teaSpoon;
-            float caps;
-        };
 
-        ingredient(float amount, int type, std::string name) : type(type), name(name) {
+Recipe::ingredient::ingredient(float amount, int type, std::string name) : type(type), name(name) {
             setAmount(amount);
         }
 
-        int type;
-        portion amount;
-        std::string name;
-
-        void setAmount(float input) {
+        void Recipe::ingredient::setAmount(float input) {
             switch (type) {
                 case 0:
                     amount.mg = input;
@@ -68,7 +49,7 @@ public:
             }
         }
 
-        float getAmount() {
+        float Recipe::ingredient::getAmount() {
             switch (type) {
                 case 0:
                     return amount.mg;
@@ -96,10 +77,10 @@ public:
                     break;
             }
         }
-    };
-    Recipe() {}
 
-    Recipe(handler::JsonHandler *unparsedRecipe) {
+    Recipe::Recipe(){};
+
+Recipe::Recipe(JsonHandler *unparsedRecipe) {
         *name = (*(unparsedRecipe->getRecipesJson()))["name"].asString();
         numberOfSteps = (*(unparsedRecipe->getRecipesJson()))["number of steps"].asInt();
 
@@ -109,8 +90,8 @@ public:
             std::string *recipeStepImg = ((*(unparsedRecipe->getRecipesJson()))["steps"][i][2].asString() == "") ?
                                          nullptr :
                                          new string ((*(unparsedRecipe->getRecipesJson()))["steps"][i][2].asString());
-
-            step.push_back(new stepStruct(recipeStep, recipeStepType, recipeStepImg));
+            Recipe::stepStruct *temp = new stepStruct(recipeStepImg, recipeStep, recipeStepType);
+            step.push_back(*temp);
         }
 
         numberOfIngredients = (*(unparsedRecipe->getRecipesJson()))["number of ingredients"].asInt();
@@ -123,53 +104,60 @@ public:
         }
     }
 
-    ~Recipe() {
+Recipe::~Recipe() {
         delete name;
-        for (ingredient i: ingredients) {
-            delete &i;
+        for (int i = 0; i < numberOfIngredients; i++) {
+            ingredients.pop_back();
         }
+        delete &ingredients;
+
+        for (int i = 0; i < numberOfSteps; i++) {
+            step.pop_back();
+        }
+        delete &step;
     }
 
-    string *getName() const {
+    string *Recipe::getName() const {
         return name;
     }
 
-    int getNumberOfSteps() const {
+    int Recipe::getNumberOfSteps() const {
         return numberOfSteps;
     }
 
-    int getNumberOfIngredients() const {
+    int Recipe::getNumberOfIngredients() const {
         return numberOfIngredients;
     }
 
-    const std::string* getStep(int position) const {
-        return step.at(position)->step;
+    const std::string* Recipe::getStep(int position) const {
+        return step.at(position).step;
     }
 
-    const vector<ingredient> &getIngredients() const {
+    const vector<Recipe::ingredient> &Recipe::getIngredients() const {
         return ingredients;
     }
 
-    void addIngredient(float amount, int type, std::string name) {
-        ingredient *tempIngredient = new ingredient(amount, type, name);
-        ingredients.push_back(*tempIngredient);
+    void Recipe::addIngredient(float amount, int type, std::string name) {
+        Recipe::ingredient *tempIngredient = new ingredient(amount, type, name);
+        Recipe::ingredients.push_back(*tempIngredient);
     }
 
-    void addName(std::string *name) {
+    void Recipe::addName(std::string *name) {
         this->name = name;
     }
 
-    void addStep(std::string *step, int type, std::string *img = nullptr) {
-        this->step.push_back(new stepStruct(step, type, img));
+    void Recipe::addStep(std::string *step, int type, std::string *img) {
+        stepStruct *temp = (new stepStruct(img, step, type));
+        this->step.push_back(*temp);
         numberOfSteps++;
     }
 
-    void removeLastStep() {
+    void Recipe::removeLastStep() {
         step.pop_back();
         numberOfSteps--;
     }
 
-    Json::Value* asJson() {
+    Json::Value* Recipe::asJson() {
         Json::Value *recipeJson = new Json::Value;
         (*recipeJson)["name"] = name;
         (*recipeJson)["number of steps"] = numberOfSteps;
@@ -185,11 +173,3 @@ public:
 
         return recipeJson;
     }
-
-private:
-    std::string *name = new string("");
-    int numberOfSteps;
-    int numberOfIngredients;
-    vector<stepStruct*> step;
-    vector<ingredient> ingredients;
-};

@@ -12,7 +12,7 @@
         Json::Value *recipesJson = new Json::Value();
 
         JsonHandler::JsonHandler(){
-            readJson();
+//            readJson();
         };
 
         JsonHandler::JsonHandler(Json::Value input) {
@@ -29,7 +29,6 @@
 
             if (input.fail()) {
                 std::cout << "Failed to open a file." << std::endl;
-                input.close();
                 return;
             }
 
@@ -48,9 +47,14 @@
 
         void JsonHandler::writeJson()  {
             Json::FastWriter writer;
-            const std::string json_file = writer.write(recipesJson);
-            ofstream write;
+            std::string json_file = writer.write(recipesJson);
+            fstream write;
             write.open("recipe.json");
+
+            cout << json_file << endl;
+            if (write.fail()) {
+                return;
+            }
 
             write << json_file;
 

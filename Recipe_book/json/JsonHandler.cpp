@@ -7,7 +7,7 @@
 #include "JsonWriter.h"
 #include <iostream>
 #include <fstream>
-#include "dist/json/json.h"
+#include "../dist/json/json.h"
 
         Json::Value *recipesJson = new Json::Value();
 

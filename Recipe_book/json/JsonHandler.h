@@ -5,7 +5,7 @@
 #ifndef RECIPE_BOOK_JSONHANDLER_H
 #define RECIPE_BOOK_JSONHANDLER_H
 
-#include "dist/json/json.h"
+#include "../dist/json/json.h"
 #include "JsonReader.h"
 #include "JsonWriter.h"
 

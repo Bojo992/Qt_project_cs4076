@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "selectpagetype.h"
-#include "recipepagetypeone.h"
-#include "recipepagetypetwo.h"
+#include "settingsPage/selectpagetype.h"
+#include "recipePage/recipepagetypeone.h"
+#include "recipePage/recipepagetypetwo.h"
 #include "recipe.h"
 #include <map>
 

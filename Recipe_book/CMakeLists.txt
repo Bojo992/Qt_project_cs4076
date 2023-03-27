@@ -17,21 +17,21 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
-        recipepagetypeone.cpp
-        recipepagetypeone.h
-        recipepagetypeone.ui
-        recipepagetypetwo.cpp
-        recipepagetypetwo.h
-        recipepagetypetwo.ui
-        selectpagetype.cpp
-        selectpagetype.h
-        selectpagetype.ui
-        settingpagetypeone.cpp
-        settingpagetypeone.h
-        settingpagetypeone.ui
-        settingpagetypetwo.cpp
-        settingpagetypetwo.h
-        settingpagetypetwo.ui
+        recipePage/recipepagetypeone.cpp
+        recipePage/recipepagetypeone.h
+        recipePage/recipepagetypeone.ui
+        recipePage/recipepagetypetwo.cpp
+        recipePage/recipepagetypetwo.h
+        recipePage/recipepagetypetwo.ui
+        settingsPage/selectpagetype.cpp
+        settingsPage/selectpagetype.h
+        settingsPage/selectpagetype.ui
+        settingsPage/settingpagetypeone.cpp
+        settingsPage/settingpagetypeone.h
+        settingsPage/settingpagetypeone.ui
+        settingsPage/settingpagetypetwo.cpp
+        settingsPage/settingpagetypetwo.h
+        settingsPage/settingpagetypetwo.ui
         dist/jsoncpp.cpp
         dist/json/json.h
         dist/json/json-forwards.h
@@ -45,8 +45,8 @@ set(PROJECT_SOURCES
         include/json/value.h
         include/json/version.h
         include/json/writer.h
-        JsonReader.h
-        JsonWriter.h recipe.cpp recipe.h JsonHandler.cpp JsonHandler.h)
+        json/JsonReader.h
+        json/JsonWriter.h recipe.cpp recipe.h json/JsonHandler.cpp json/JsonHandler.h)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Recipe_book

@@ -21,7 +21,7 @@
     <item row="0" column="0">
      <widget class="QPushButton" name="addNewRecipeButton">
       <property name="text">
-       <string>PushButton</string>
+       <string>Add recipe</string>
       </property>
      </widget>
     </item>
@@ -38,22 +38,28 @@
    </property>
    <widget class="QMenu" name="menuOptions">
     <property name="title">
-     <string>Options</string>
+     <string>&amp;Options</string>
     </property>
-    <addaction name="actionSettings"/>
-    <addaction name="quiteOption"/>
+    <addaction name="settingsOption"/>
+    <addaction name="quitOption"/>
    </widget>
    <addaction name="menuOptions"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
-  <action name="actionSettings">
+  <action name="settingsOption">
    <property name="text">
-    <string>Settings</string>
+    <string>&amp;Settings</string>
+   </property>
+   <property name="toolTip">
+    <string>Application Settings</string>
    </property>
   </action>
-  <action name="quiteOption">
+  <action name="quitOption">
    <property name="text">
-    <string>Quite</string>
+    <string>&amp;Quit</string>
+   </property>
+   <property name="toolTip">
+    <string>Quit Application</string>
    </property>
   </action>
  </widget>

@@ -5,16 +5,30 @@
 #ifndef RECIPE_BOOK_RECIPE_H
 #define RECIPE_BOOK_RECIPE_H
 
-#include "JsonHandler.h"
+#include "json/JsonHandler.h"
 
 class Recipe {
 public:
     struct stepStruct{
+    public:
         stepStruct();
-        stepStruct(std::string *, std::string *, int);
+        stepStruct(std::string , std::string , int);
         ~stepStruct();
-        std::string *step;
-        std::string *img;
+
+        string getStep() const;
+
+        void setStep(string step);
+
+        string getImg() const;
+
+        void setImg(string img);
+
+        int getType() const;
+
+        void setType(int type);
+
+        std::string step;
+        std::string img;
         int type;
     };
 
@@ -44,18 +58,20 @@ public:
     ~Recipe();
 
     string *getName() const;
+    const vector<Recipe::ingredient> &getIngredients() const;
     int getNumberOfSteps() const;
     int getNumberOfIngredients() const;
-    const std::string* getStep(int position) const;
-    const vector<ingredient> &getIngredients() const;
+    const std::string getStep(int position) const;
     void addIngredient(float amount, int type, std::string name);
     void addName(std::string *name);
-    void addStep(std::string *step, int type, std::string *img = nullptr);
+    void addStep(std::string &step, int type, std::string &img);
     void removeLastStep();
     Json::Value* asJson();
 
 private:
     std::string *name;
+    int id;
+//    static int totalId;
     int numberOfSteps;
     int numberOfIngredients;
     vector<stepStruct> step;

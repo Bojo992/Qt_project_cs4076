@@ -71,11 +71,13 @@ public:
 private:
     std::string *name;
     int id;
-//    static int totalId;
+    static int totalId;
     int numberOfSteps;
     int numberOfIngredients;
     vector<stepStruct> step;
     vector<ingredient> ingredients;
+
+    static void addTotalId();
 };
 
 #endif //RECIPE_BOOK_RECIPE_H

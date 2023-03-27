@@ -49,12 +49,9 @@
             Json::FastWriter writer;
             std::string json_file = writer.write(recipesJson);
             fstream write;
-            write.open("recipe.json");
+            write.open("./recipe.json");
 
             cout << json_file << endl;
-            if (write.fail()) {
-                return;
-            }
 
             write << json_file;
 
@@ -62,7 +59,7 @@
         }
 
         void JsonHandler::addRecipe(Json::Value *input) {
-            recipesJson->append(input);
+            (*recipesJson)[(*input)["id"].asString()] = *input;
             (*recipesJson)["number of recipes"] = 1;
         }
 

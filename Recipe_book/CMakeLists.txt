@@ -46,7 +46,11 @@ set(PROJECT_SOURCES
         include/json/version.h
         include/json/writer.h
         json/JsonReader.h
-        json/JsonWriter.h recipe.cpp recipe.h json/JsonHandler.cpp json/JsonHandler.h)
+        json/JsonWriter.h
+        recipe.cpp
+        recipe.h
+        json/JsonHandler.cpp
+        json/JsonHandler.h)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Recipe_book

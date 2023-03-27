@@ -7,6 +7,8 @@
 #include <vector>
 #include <iostream>
 
+int Recipe::totalId;
+
 Recipe::stepStruct::stepStruct(){}
 Recipe::stepStruct::stepStruct(std::string img, std::string step, int type) : step(step), img(img){
     Recipe::stepStruct::type = type;
@@ -103,11 +105,13 @@ Recipe::ingredient::ingredient(float amount, int type, std::string name) : type(
         }
 
 Recipe::Recipe(){
-        id = 1;
+        id = totalId;
+        addTotalId();
 };
 
 Recipe::Recipe(JsonHandler *unparsedRecipe) {
         id = (*(unparsedRecipe->getRecipesJson()))["id"].asInt();
+        addTotalId();
         *name = (*(unparsedRecipe->getRecipesJson()))["name"].asString();
         numberOfSteps = (*(unparsedRecipe->getRecipesJson()))["number of steps"].asInt();
 
@@ -186,6 +190,7 @@ Recipe::~Recipe() {
     Json::Value* Recipe::asJson() {
         Json::Value *recipeJson = new Json::Value;
         (*recipeJson)["name"] = *name;
+        (*recipeJson)["id"] = id;
         (*recipeJson)["number of steps"] = numberOfSteps;
         (*recipeJson)["number of ingredients"] = numberOfIngredients;
 
@@ -204,4 +209,8 @@ Recipe::~Recipe() {
         }
 
         return recipeJson;
+    }
+
+    void Recipe::addTotalId() {
+        totalId++;
     }

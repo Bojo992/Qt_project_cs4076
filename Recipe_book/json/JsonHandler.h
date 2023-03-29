@@ -5,13 +5,14 @@
 #ifndef RECIPE_BOOK_JSONHANDLER_H
 #define RECIPE_BOOK_JSONHANDLER_H
 
+#include "JsonReader.h"
 #include "../dist/json/json.h"
 #include "JsonReader.h"
 #include "JsonWriter.h"
+#include "../recipe.h"
+#include <vector>
 
-namespace handler {
-    class JsonHandler;
-}
+
 class JsonHandler : JsonReader, JsonWriter {
 public:
     JsonHandler();
@@ -24,9 +25,12 @@ public:
 
     void readJson();
 
-    JsonHandler* getRecipe(std::string name) const;
-    Json::Value* getRecipesJson() const;
+    vector<Recipe> getRecipes();
 
-    void addRecipe(Json::Value *input);
+    void addRecipe(Recipe&);
+private:
+    Recipe toRecipe(Json::Value json);
+
+    Json::Value &parsToJson(Recipe recipe);
 };
 #endif //RECIPE_BOOK_JSONHANDLER_H

@@ -6,41 +6,9 @@
 #include "recipe.h"
 #include <vector>
 #include <iostream>
+#include "Step.h"
 
-int Recipe::totalId;
-
-Recipe::stepStruct::stepStruct(){}
-Recipe::stepStruct::stepStruct(std::string img, std::string step, int type) : step(step), img(img){
-    Recipe::stepStruct::type = type;
-}
-
-Recipe::stepStruct::~stepStruct(){
-
-}
-
-string Recipe::stepStruct::getStep() const {
-    return step;
-}
-
-void Recipe::stepStruct::setStep(string step) {
-    stepStruct::step = step;
-}
-
-string Recipe::stepStruct::getImg() const {
-    return img;
-}
-
-void Recipe::stepStruct::setImg(string img) {
-    stepStruct::img = img;
-}
-
-int Recipe::stepStruct::getType() const {
-    return type;
-}
-
-void Recipe::stepStruct::setType(int type) {
-    stepStruct::type = type;
-}
+int Recipe::totalId = 1;
 
 Recipe::ingredient::ingredient(float amount, int type, std::string name) : type(type), name(name) {
             setAmount(amount);
@@ -102,6 +70,8 @@ Recipe::ingredient::ingredient(float amount, int type, std::string name) : type(
                     return amount.caps;
                     break;
             }
+
+            return -1;
         }
 
 Recipe::Recipe(){
@@ -109,34 +79,8 @@ Recipe::Recipe(){
         addTotalId();
 };
 
-Recipe::Recipe(JsonHandler *unparsedRecipe) {
-        id = (*(unparsedRecipe->getRecipesJson()))["id"].asInt();
-        addTotalId();
-        *name = (*(unparsedRecipe->getRecipesJson()))["name"].asString();
-        numberOfSteps = (*(unparsedRecipe->getRecipesJson()))["number of steps"].asInt();
-
-        for (int i = 0; i < numberOfSteps; i++) {
-            std::string *recipeStep = new string((*(unparsedRecipe->getRecipesJson()))["steps"][i + ""]["0"].asString());
-            int recipeStepType = (*(unparsedRecipe->getRecipesJson()))["steps"][i + ""]["1"].asInt();
-            std::string *recipeStepImg = ((*(unparsedRecipe->getRecipesJson()))["steps"][i + ""]["2"].asString() == "") ?
-                                         nullptr :
-                                         new string ((*(unparsedRecipe->getRecipesJson()))["steps"][i + ""]["2"].asString());
-            Recipe::stepStruct *temp = new stepStruct(*recipeStepImg, *recipeStep, recipeStepType);
-            step.push_back(*temp);
-        }
-
-        numberOfIngredients = (*(unparsedRecipe->getRecipesJson()))["number of ingredients"].asInt();
-
-        for (int i = 0; i < numberOfIngredients; i++) {
-            int type = (*(unparsedRecipe->getRecipesJson()))["ingredients"][i + ""]["0"].asInt();
-            std::string name = (*(unparsedRecipe->getRecipesJson()))["ingredients"][i + ""]["1"].asString();
-            float amount = (*(unparsedRecipe->getRecipesJson()))["ingredients"][i + ""]["2"].asFloat();
-            addIngredient(amount, type, name);
-        }
-    }
-
 Recipe::~Recipe() {
-        delete name;
+//        delete name;
         for (int i = 0; i < numberOfIngredients; i++) {
             ingredients.pop_back();
         }
@@ -146,7 +90,7 @@ Recipe::~Recipe() {
         }
     }
 
-    string *Recipe::getName() const {
+    string Recipe::getName() const {
         return name;
     }
 
@@ -158,8 +102,8 @@ Recipe::~Recipe() {
         return numberOfIngredients;
     }
 
-    const std::string Recipe::getStep(int position) const {
-        return step.at(position).step;
+    stepStruct Recipe::getStep(int position) {
+        return step.at(position);
     }
 
     const vector<Recipe::ingredient> &Recipe::getIngredients() const {
@@ -172,12 +116,12 @@ Recipe::~Recipe() {
         numberOfIngredients++;
     }
 
-    void Recipe::addName(std::string *name) {
+    void Recipe::addName(std::string name) {
         this->name = name;
     }
 
-    void Recipe::addStep(std::string &step, int type, std::string &img) {
-//        stepStruct *temp = (new stepStruct(img, step, type));
+    void Recipe::addStep(std::string &img, std::string &step, int type) {
+        stepStruct temp = *new stepStruct(img, step, type);
         Recipe::step.push_back(*(new stepStruct(img, step, type)));
         numberOfSteps++;
     }
@@ -187,30 +131,71 @@ Recipe::~Recipe() {
         numberOfSteps--;
     }
 
-    Json::Value* Recipe::asJson() {
-        Json::Value *recipeJson = new Json::Value;
-        (*recipeJson)["name"] = *name;
-        (*recipeJson)["id"] = id;
-        (*recipeJson)["number of steps"] = numberOfSteps;
-        (*recipeJson)["number of ingredients"] = numberOfIngredients;
-
-        for (int i = 0; i < numberOfIngredients; i++) {
-            string jsonPosition = to_string(i);
-            (*recipeJson)["ingredients"][jsonPosition]["0"] = ingredients.at(i).type;
-            (*recipeJson)["ingredients"][jsonPosition]["1"] = ingredients.at(i).name;
-            (*recipeJson)["ingredients"][jsonPosition]["2"] = ingredients.at(i).getAmount();
-        }
-
-        for (int i = 0; i < numberOfSteps; i++) {
-            string jsonPosition = to_string(i);
-            (*recipeJson)["step"][jsonPosition]["0"] = step.at(i).getStep();
-            (*recipeJson)["step"][jsonPosition]["1"] = step.at(i).getType();
-            (*recipeJson)["step"][jsonPosition]["2"] = step.at(i).getImg();
-        }
-
-        return recipeJson;
-    }
-
     void Recipe::addTotalId() {
         totalId++;
     }
+
+const vector<stepStruct> &Recipe::getSteps() const {
+    return step;
+}
+
+void Recipe::setId(int newId) {
+    id = newId;
+}
+
+void Recipe::setName(string name) {
+    Recipe::name = name;
+}
+
+void Recipe::setNumberOfSteps(int numberOfSteps) {
+    Recipe::numberOfSteps = numberOfSteps;
+}
+
+void Recipe::setNumberOfIngredients(int numberOfIngredients) {
+    Recipe::numberOfIngredients = numberOfIngredients;
+}
+
+void Recipe::setStep(const vector<stepStruct> &step) {
+    Recipe::step = step;
+}
+
+void Recipe::setIngredients(const vector<ingredient> &ingredients) {
+    Recipe::ingredients = ingredients;
+}
+
+int Recipe::getId() const {
+    return id;
+}
+
+Recipe::Recipe(const Recipe & recipe) {
+    setId(recipe.getId());
+    string name = recipe.getName().c_str();
+    setName(name);
+
+    auto ingredients = recipe.getIngredients();
+
+    for (auto i : ingredients) {
+        name = *new string (i.name);
+        addIngredient(i.getAmount(), i.type, name);
+    }
+
+    auto steps = recipe.getSteps();
+
+    for (auto i : steps) {
+        string text = i.step.c_str();
+        string img = i.img.c_str();
+        addStep(img, text, i.type);
+    }
+
+}
+
+void Recipe::out() {
+    cout << name << endl;
+    cout << id << endl;
+    for (auto i : ingredients) {
+        cout << i.name << " " << i.getAmount() << endl;
+    }
+    for (auto i : step) {
+        cout << i.step << endl;
+    }
+}

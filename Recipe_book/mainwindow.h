@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QListWidgetItem>
 #include "recipe.h"
+#include "json/JsonHandler.h"
 #include <map>
 
 namespace Ui {
@@ -17,16 +18,22 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-    static std::map<std::string, Recipe> recipes;
+    static std::map<int, Recipe> recipes;
 
+signals:
+    void sendRecipeTypeOne(Recipe);
+    void sendRecipeTypeTwo(Recipe);
 
 private slots:
     void on_recipeListWidget_itemClicked(QListWidgetItem *item);
+    void on_addNewRecipeButton_clicked();
     void on_quiteOption_triggered();
 
 private:
     Ui::MainWindow *ui;
-    static void addRecipe(std::string, Recipe*);
+    void addRecipe(int, Recipe);
+
+    JsonHandler readJson;
 };
 
 #endif // MAINWINDOW_H

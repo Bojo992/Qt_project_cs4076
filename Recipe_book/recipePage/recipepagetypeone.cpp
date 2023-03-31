@@ -14,6 +14,7 @@ RecipePageTypeOne::RecipePageTypeOne(QWidget *parent) :
     ui(new Ui::RecipePageTypeOne)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Recipe");
 }
 
 
@@ -26,6 +27,7 @@ void RecipePageTypeOne::addRecipe(Recipe input) {
     ostringstream text;
     recipe = input;
     ui->recipeTextField->setText(QString::fromStdString(recipe.getStep(step).step));
+    ui->label->setText(QString::fromStdString("step " + to_string(step + 1)));
 
     for (auto i : input.getIngredients()) {
         text << i.getAmount() << " " << i.getType() << " of " << i.name;
@@ -47,6 +49,8 @@ void RecipePageTypeOne::changeStep(int newStep, Recipe input) {
         text.str("");
         text.clear();
     }
+
+    ui->label->setText(QString::fromStdString("step " + to_string(step + 1)));
 }
 
 void RecipePageTypeOne::on_nextButton_clicked() {

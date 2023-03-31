@@ -7,6 +7,7 @@ SettingPageTypeTwo::SettingPageTypeTwo(QWidget *parent) :
     ui(new Ui::SettingPageTypeTwo)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Settings");
 
 }
 

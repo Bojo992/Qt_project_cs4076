@@ -14,37 +14,45 @@
    <string>Dialog</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
-   <item row="3" column="1" alignment="Qt::AlignRight">
-    <widget class="QPushButton" name="nextButton">
-     <property name="text">
-      <string>Next</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" alignment="Qt::AlignHCenter">
-    <widget class="QRadioButton" name="type1Radio">
-     <property name="text">
-      <string>Page Type 1</string>
-     </property>
-    </widget>
-   </item>
-   <item row="0" column="1">
-    <widget class="QGraphicsView" name="type2GraphicsView"/>
-   </item>
-   <item row="0" column="0">
-    <widget class="QGraphicsView" name="type1GraphicsView"/>
-   </item>
-   <item row="2" column="1" colspan="2" alignment="Qt::AlignHCenter">
+   <item row="1" column="1" colspan="2" alignment="Qt::AlignHCenter">
     <widget class="QRadioButton" name="type2Radio">
      <property name="text">
       <string>Page Type 2</string>
      </property>
     </widget>
    </item>
-   <item row="3" column="0" alignment="Qt::AlignLeft">
+   <item row="2" column="1" alignment="Qt::AlignRight">
+    <widget class="QPushButton" name="nextButton">
+     <property name="text">
+      <string>Next</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0" alignment="Qt::AlignHCenter">
+    <widget class="QLabel" name="label">
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0" alignment="Qt::AlignHCenter">
+    <widget class="QRadioButton" name="type1Radio">
+     <property name="text">
+      <string>Page Type 1</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0" alignment="Qt::AlignLeft">
     <widget class="QPushButton" name="pushButton">
      <property name="text">
       <string>Finish</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="1" alignment="Qt::AlignHCenter">
+    <widget class="QLabel" name="label_2">
+     <property name="text">
+      <string/>
      </property>
     </widget>
    </item>

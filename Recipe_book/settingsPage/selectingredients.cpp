@@ -17,6 +17,7 @@ selectIngredients::selectIngredients(QWidget *parent) :
     ui->setupUi(this);
 
     listOfIngredients = new vector<Recipe::ingredient*>;
+    this->setWindowTitle("Settings");
 }
 
 selectIngredients::~selectIngredients()

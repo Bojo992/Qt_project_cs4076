@@ -22,6 +22,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     readJson = new JsonHandler();
     ui->setupUi(this);
+    this->setWindowTitle("Recipe Book");
 
     settings *setting = new settings();
 

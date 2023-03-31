@@ -10,6 +10,7 @@ RecipePageTypeTwo::RecipePageTypeTwo(QWidget *parent) :
     ui(new Ui::RecipePageTypeTwo)
 {
     ui->setupUi(this);
+    this->setWindowTitle("Recipe");
 }
 
 RecipePageTypeTwo::~RecipePageTypeTwo()
@@ -22,12 +23,14 @@ void RecipePageTypeTwo::addRecipe(Recipe input) {
     step = 0;
     string text = recipe.getStep(step).step;
     ui->recipeTextField->setText(QString::fromStdString(text));
+    ui->label->setText(QString::fromStdString("step " + to_string(step + 1)));
 }
 
 void RecipePageTypeTwo::changeStep(int newStep, Recipe input) {
     recipe = input;
     step = newStep;
     ui->recipeTextField->setText(QString::fromStdString(recipe.getStep(step).step));
+    ui->label->setText(QString::fromStdString("step " + to_string(step + 1)));
 }
 
 void RecipePageTypeTwo::on_nextButton_clicked() {

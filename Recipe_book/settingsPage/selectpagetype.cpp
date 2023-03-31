@@ -23,6 +23,15 @@ SelectPageType::SelectPageType(QWidget *parent) :
               this, SLOT(getIngredients(int, vector<Recipe::ingredient> *, string*)));
 
     recipe = new Recipe();
+
+    this->setWindowTitle("Settings");
+    QPixmap img(QString::fromStdString("C:\\GitHub\\QT project\\Recipe_book\\pagetype1.png"));
+    int w = 500;
+    int h = 500;
+    ui->label->setPixmap(img.scaled(w, h, Qt::KeepAspectRatio));
+    QPixmap img2(QString::fromStdString("C:\\GitHub\\QT project\\Recipe_book\\pagetype2.png"));
+    ui->label_2->setPixmap(img2.scaled(w, h, Qt::KeepAspectRatio));
+
 }
 
 SelectPageType::~SelectPageType()

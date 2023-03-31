@@ -41,7 +41,6 @@
      <string>&amp;Options</string>
     </property>
     <addaction name="settingsOption"/>
-    <addaction name="quitOption"/>
    </widget>
    <addaction name="menuOptions"/>
   </widget>
@@ -52,14 +51,6 @@
    </property>
    <property name="toolTip">
     <string>Application Settings</string>
-   </property>
-  </action>
-  <action name="quitOption">
-   <property name="text">
-    <string>&amp;Quit</string>
-   </property>
-   <property name="toolTip">
-    <string>Quit Application</string>
    </property>
   </action>
  </widget>

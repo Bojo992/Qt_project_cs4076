@@ -115,7 +115,7 @@
       <item>
        <widget class="QPushButton" name="finishButton">
         <property name="text">
-         <string>Srat adding steps</string>
+         <string>Start adding steps</string>
         </property>
        </widget>
       </item>

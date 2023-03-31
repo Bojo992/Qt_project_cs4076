@@ -34,6 +34,7 @@ public:
         std::string name;
         void setAmount(float input);
         float getAmount();
+        string getType();
     };
 
     Recipe();
@@ -47,7 +48,7 @@ public:
     stepStruct getStep(int position);
     void addIngredient(float amount, int type, std::string name);
     void addName(std::string name);
-    void addStep(std::string &img, std::string &step, int type);
+    void addStep(std::string &step, int type);
     void removeLastStep();
 
     int getId() const;

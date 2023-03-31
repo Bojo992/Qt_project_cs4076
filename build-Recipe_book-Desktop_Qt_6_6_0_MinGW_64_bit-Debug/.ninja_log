@@ -1,0 +1,38 @@
+# ninja log v5
+1013	8009	7019336570450376	CMakeFiles/Recipe_book.dir/recipePage/recipepagetypeone.cpp.obj	dd6e249271ed068
+3326	16495	7018319641893431	CMakeFiles/Recipe_book.dir/dist/jsoncpp.cpp.obj	f03691ed0f178e21
+1933	3313	7018434733154174	CMakeFiles/Recipe_book.dir/indexOutOfBoundaries.cpp.obj	95f7f067a238de1
+13441	14260	7018319619234727	CMakeFiles/Recipe_book.dir/Recipe_book_autogen/EWIEGA46WW/qrc_resource.cpp.obj	43235eb09fb1b58f
+3148	3261	7018319509576522	C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Recipe_book_autogen/EWIEGA46WW/qrc_resource.cpp	f6d153364198ec34
+1038	7485	7019336565126302	CMakeFiles/Recipe_book.dir/settingsPage/selectingredients.cpp.obj	5c75f3c6ea12dce3
+14	814	7019347682157650	C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Recipe_book_autogen/timestamp	ca75322b6bd576b3
+3148	3261	7018319509576522	Recipe_book_autogen/EWIEGA46WW/qrc_resource.cpp	f6d153364198ec34
+815	4503	7019347720405067	CMakeFiles/Recipe_book.dir/Recipe_book_autogen/mocs_compilation.cpp.obj	f45db76c5ae55954
+998	7150	7019336561714320	CMakeFiles/Recipe_book.dir/recipePage/recipepagetypetwo.cpp.obj	6b514caa5abac441
+4504	5821	7019347733442954	Recipe_book.exe	9d41aa74f46683b6
+1464	5206	7019284595282734	CMakeFiles/Recipe_book.dir/json/JsonHandler.cpp.obj	7c31933340207593
+13591	15411	7018319631124171	CMakeFiles/Recipe_book.dir/print.cpp.obj	fe88e1a299f17499
+14	814	7019347682157650	Recipe_book_autogen/timestamp	ca75322b6bd576b3
+1002	7320	7019336563457689	CMakeFiles/Recipe_book.dir/settingsPage/selectpagetype.cpp.obj	c3611112d96d381c
+14	814	7019347682157650	Recipe_book_autogen/mocs_compilation.cpp	ca75322b6bd576b3
+244	2753	7018436791504008	CMakeFiles/Recipe_book.dir/settingsPage/setingredients.cpp.obj	81962d6843ad8f46
+1024	6798	7019336558075274	CMakeFiles/Recipe_book.dir/settingsPage/settingpagetypeone.cpp.obj	ddf6fab65cb718fb
+1459	3687	7019284580469870	CMakeFiles/Recipe_book.dir/Step.cpp.obj	88946d4514efd9b9
+3689	10696	7019284650886793	CMakeFiles/Recipe_book.dir/main.cpp.obj	f68ae369f2498591
+822	3558	7019347710920986	CMakeFiles/Recipe_book.dir/settings.cpp.obj	e26b74579ed26153
+14	814	7019347682157650	C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Recipe_book_autogen/mocs_compilation.cpp	ca75322b6bd576b3
+9	6094	7019519797411924	build.ninja	cc2027c9cb6dc7ba
+1450	5040	7019284593494814	CMakeFiles/Recipe_book.dir/recipe.cpp.obj	2d77de014319c5aa
+818	4377	7019347719122102	CMakeFiles/Recipe_book.dir/mainwindow.cpp.obj	4e97f313f6064648
+1018	6822	7019336558140477	CMakeFiles/Recipe_book.dir/settingsPage/settingpagetypetwo.cpp.obj	f11fc4bfe6f17f37
+17	961	7019529533580932	Recipe_book_autogen/timestamp	ca75322b6bd576b3
+17	961	7019529533580932	Recipe_book_autogen/mocs_compilation.cpp	ca75322b6bd576b3
+17	961	7019529533580932	C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Recipe_book_autogen/timestamp	ca75322b6bd576b3
+17	961	7019529533580932	C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Recipe_book_autogen/mocs_compilation.cpp	ca75322b6bd576b3
+990	3271	7019529558430821	CMakeFiles/Recipe_book.dir/style.cpp.obj	fc26dc233d73989f
+983	4083	7019529566551574	CMakeFiles/Recipe_book.dir/settings.cpp.obj	e26b74579ed26153
+962	4444	7019529570047703	CMakeFiles/Recipe_book.dir/main.cpp.obj	f68ae369f2498591
+977	4540	7019529570994497	CMakeFiles/Recipe_book.dir/recipePage/recipepagetypetwo.cpp.obj	6b514caa5abac441
+972	4811	7019529573778347	CMakeFiles/Recipe_book.dir/mainwindow.cpp.obj	4e97f313f6064648
+966	5029	7019529575925800	CMakeFiles/Recipe_book.dir/Recipe_book_autogen/mocs_compilation.cpp.obj	f45db76c5ae55954
+5029	6465	7019529590204542	Recipe_book.exe	cb18a7415383468f

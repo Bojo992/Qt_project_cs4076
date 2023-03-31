@@ -1,0 +1,23 @@
+{
+	"BUILD_DIR" : "C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Recipe_book_autogen",
+	"CMAKE_BINARY_DIR" : "C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "C:/GitHub/QT project/Recipe_book",
+	"CMAKE_SOURCE_DIR" : "C:/GitHub/QT project/Recipe_book",
+	"INCLUDE_DIR" : "C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/Recipe_book_autogen/include",
+	"INPUTS" : 
+	[
+		"C:/GitHub/QT project/Recipe_book/recipe.json",
+		"C:/GitHub/QT project/Recipe_book/test.json"
+	],
+	"LOCK_FILE" : "C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/CMakeFiles/Recipe_book_autogen.dir/AutoRcc_resource_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "-name", "resource" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resource.cpp",
+	"RCC_EXECUTABLE" : "C:/Qt/6.6.0/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug/CMakeFiles/Recipe_book_autogen.dir/AutoRcc_resource_EWIEGA46WW_Used.txt",
+	"SOURCE" : "C:/GitHub/QT project/Recipe_book/resource.qrc",
+	"VERBOSITY" : 0
+}

@@ -7,18 +7,21 @@ SettingPageTypeOne::SettingPageTypeOne(QWidget *parent) :
     ui(new Ui::SettingPageTypeOne)
 {
     ui->setupUi(this);
-
-
-
-    connect(ui->addPageButton, &QPushButton::clicked,
-            parent, &SettingPageTypeOne::show);
-    connect(ui->addPageButton, &QPushButton::clicked,
-            this, &SettingPageTypeOne::deleteLater);
-    connect(ui->finishButton, &QPushButton::clicked,
-            this, &SettingPageTypeOne::deleteLater);
 }
 
 SettingPageTypeOne::~SettingPageTypeOne()
 {
     delete ui;
+}
+
+void SettingPageTypeOne::on_addPageButton_clicked()
+{
+    string *text = new string(ui->recipeTextField->toPlainText().toStdString());
+    emit(sendStep(1, *text));
+    deleteLater();
+}
+
+void SettingPageTypeOne::on_resetButton_clicked()
+{
+    ui->recipeTextField->clear();
 }

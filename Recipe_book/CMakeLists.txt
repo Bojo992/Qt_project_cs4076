@@ -12,6 +12,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
+
 set(PROJECT_SOURCES
         main.cpp
         mainwindow.cpp
@@ -55,7 +56,20 @@ set(PROJECT_SOURCES
         Step.h
         print.cpp
         print.h
-        resource.qrc)
+        resource.qrc
+        indexOutOfBoundaries.cpp
+        indexOutOfBoundaries.h
+        settingsPage/selectingredients.cpp
+        settingsPage/selectingredients.h
+        settingsPage/selectingredients.ui
+        settings.cpp
+        settings.h
+        settings.ui
+        style.cpp
+        style.h
+        )
+
+qt_add_resources(RESOURCE_FILES resources.qrc)
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Recipe_book
@@ -76,6 +90,7 @@ else()
     else()
         add_executable(Recipe_book
                 ${PROJECT_SOURCES}
+                ${RESOURCE_FILES}
                 )
     endif()
 endif()

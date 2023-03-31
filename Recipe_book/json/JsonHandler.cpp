@@ -26,13 +26,7 @@ JsonHandler::~JsonHandler() {
 
 void JsonHandler::readJson() {
     fstream input;
-    input.open("recipe.json",
-               fstream::in);
-
-    if (!input.is_open()) {
-        input.close();
-        return;
-    }
+    input.open("recipe.json", fstream::in);
 
     Json::CharReaderBuilder builder;
 
@@ -49,10 +43,13 @@ void JsonHandler::readJson() {
 }
 
 void JsonHandler::writeJson() {
-    fstream write;
-    write.open("recipe.json", fstream::in | fstream::out | ios::trunc);
+    ofstream write;
+    write.open("recipe.json", fstream::out | fstream::trunc);
 
-    write << *recipesJson;
+    if (write.is_open()) {
+        cout << *recipesJson << endl;
+        write << *recipesJson;
+    }
 
     write.close();
 }
@@ -77,10 +74,9 @@ Recipe JsonHandler::toRecipe(Json::Value json) {
     (*recipe).setNumberOfIngredients(numberOfIngredients);
 
     for (int i = 0; i < numberOfSteps; i++) {
-        std::string *recipeStep = new string(json["steps"][to_string(i)]["0"].asString());
-        int recipeStepType = json["steps"][to_string(i)]["1"].asInt();
-        string img = json["steps"][to_string(i)]["2"].asString();
-        (*recipe).addStep(img, *recipeStep, recipeStepType);
+        std::string *recipeStep = new string(json["step"][to_string(i)]["0"].asString());
+        int recipeStepType = json["step"][to_string(i)]["1"].asInt();
+        (*recipe).addStep(*recipeStep, recipeStepType);
     }
 
     for (int i = 0; i < numberOfIngredients; i++) {

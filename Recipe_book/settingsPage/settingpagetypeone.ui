@@ -17,40 +17,23 @@
    <item row="0" column="0">
     <widget class="QPlainTextEdit" name="recipeTextField"/>
    </item>
-   <item row="0" column="1" alignment="Qt::AlignTop">
-    <widget class="QPushButton" name="addPhotoButton">
-     <property name="text">
-      <string>Add photo</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0" alignment="Qt::AlignLeft">
-    <widget class="QPushButton" name="resetButton">
-     <property name="text">
-      <string>Reset</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="1">
-    <widget class="QPushButton" name="addPageButton">
-     <property name="text">
-      <string>Add page</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="0" alignment="Qt::AlignLeft">
-    <widget class="QPushButton" name="previewButton">
-     <property name="text">
-      <string>Preview</string>
-     </property>
-    </widget>
-   </item>
-   <item row="2" column="1">
-    <widget class="QPushButton" name="finishButton">
-     <property name="text">
-      <string>Finish</string>
-     </property>
-    </widget>
+   <item row="1" column="0">
+    <layout class="QGridLayout" name="gridLayout_2">
+     <item row="0" column="0" alignment="Qt::AlignLeft">
+      <widget class="QPushButton" name="resetButton">
+       <property name="text">
+        <string>Reset</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1" alignment="Qt::AlignRight">
+      <widget class="QPushButton" name="addPageButton">
+       <property name="text">
+        <string>Add page</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>

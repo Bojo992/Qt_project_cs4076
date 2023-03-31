@@ -11,7 +11,9 @@ using namespace std;
 
 class stepStruct{
 public:
-    stepStruct(std::string , std::string , int);
+    stepStruct();
+
+    stepStruct(std::string , int);
 
     const string &getStep() const;
 

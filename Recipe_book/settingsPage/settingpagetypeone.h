@@ -15,8 +15,16 @@ class SettingPageTypeOne : public QDialog
 public:
     explicit SettingPageTypeOne(QWidget *parent = nullptr);
     ~SettingPageTypeOne();
+public slots:
+    void on_addPageButton_clicked();
+
+    void on_resetButton_clicked();
+signals:
+
+    void sendStep(int, string);
 
 private:
+
     Ui::SettingPageTypeOne *ui;
 };
 

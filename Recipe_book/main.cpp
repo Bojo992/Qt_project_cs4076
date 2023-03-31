@@ -1,4 +1,4 @@
-#define DEBUG 2
+#define DEBUG 0
 
 #if DEBUG == 0
 
@@ -64,14 +64,14 @@ int main() {
     string *img2 = new string("test add extra step to the recipe");
     test.addName(*name);
     test.addIngredient(20, 2, "test add ingredient");
-    test.addStep(*img1, *step1, 1);
-    test.addStep(*img2, *step2, 1);
+    test.addIngredient(23, 4, "test add ingredient");
+    test.addStep(*step1, 1);
+    test.addStep(*step2, 1);
 
     Recipe test1;
     test1.addName(*name);
     test1.addIngredient(20, 2, "test add ingredient");
-    test1.addStep(*img1, *step1, 1);
-    test1.addStep(*img2, *step2, 1);
+    test1.addStep(*step1, 2);
 
     JsonHandler sut;
     sut.addRecipe(test);

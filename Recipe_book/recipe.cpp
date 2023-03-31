@@ -74,6 +74,37 @@ Recipe::ingredient::ingredient(float amount, int type, std::string name) : type(
             return -1;
         }
 
+string Recipe::ingredient::getType() {
+    switch (type) {
+        case 0:
+            return "milligrams";
+            break;
+        case 1:
+            return "grams";
+            break;
+        case 2:
+            return "kilograms";
+            break;
+        case 3:
+            return "milliliters";
+            break;
+        case 4:
+            return "liters";
+            break;
+        case 5:
+            return "spoon";
+            break;
+        case 6:
+            return "teaSpoon";
+            break;
+        case 7:
+            return "caps";
+            break;
+    }
+
+    return "";
+}
+
 Recipe::Recipe(){
         id = totalId;
         addTotalId();
@@ -120,9 +151,8 @@ Recipe::~Recipe() {
         this->name = name;
     }
 
-    void Recipe::addStep(std::string &img, std::string &step, int type) {
-        stepStruct temp = *new stepStruct(img, step, type);
-        Recipe::step.push_back(*(new stepStruct(img, step, type)));
+    void Recipe::addStep(std::string &step, int type) {
+        Recipe::step.push_back(*(new stepStruct(step, type)));
         numberOfSteps++;
     }
 
@@ -174,24 +204,21 @@ Recipe::Recipe(const Recipe & recipe) {
 
     auto ingredients = recipe.getIngredients();
 
-    for (auto i : ingredients) {
+    for (auto i : recipe.getIngredients()) {
         name = *new string (i.name);
         addIngredient(i.getAmount(), i.type, name);
     }
 
-    auto steps = recipe.getSteps();
-
-    for (auto i : steps) {
+    for (auto i : recipe.getSteps()) {
         string text = i.step.c_str();
-        string img = i.img.c_str();
-        addStep(img, text, i.type);
+        addStep(text, i.type);
     }
-
 }
 
 void Recipe::out() {
     cout << name << endl;
     cout << id << endl;
+    cout << "num step " << numberOfSteps << endl;
     for (auto i : ingredients) {
         cout << i.name << " " << i.getAmount() << endl;
     }

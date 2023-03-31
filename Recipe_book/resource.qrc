@@ -1,5 +1,8 @@
 <RCC>
     <qresource prefix="/json">
-        <file alias="jsonHandler">recipe.json</file>
+        <file alias="recipe.json">recipe.json</file>
+    </qresource>
+    <qresource prefix="/test">
+        <file>test.json</file>
     </qresource>
 </RCC>

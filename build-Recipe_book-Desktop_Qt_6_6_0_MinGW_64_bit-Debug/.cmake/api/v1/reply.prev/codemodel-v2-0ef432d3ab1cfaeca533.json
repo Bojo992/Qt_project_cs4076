@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-93f65e1cc181209b0fd1.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "Recipe_book",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "Recipe_book::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Recipe_book-Debug-936a105e92eae513fdc3.json",
+					"name" : "Recipe_book",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Recipe_book_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Recipe_book_autogen-Debug-75a4f15ca85911868423.json",
+					"name" : "Recipe_book_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "Recipe_book_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-Recipe_book_autogen_timestamp_deps-Debug-400cc7ca18d0f8c580b6.json",
+					"name" : "Recipe_book_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/GitHub/QT project/build-Recipe_book-Desktop_Qt_6_6_0_MinGW_64_bit-Debug",
+		"source" : "C:/GitHub/QT project/Recipe_book"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 4
+	}
+}

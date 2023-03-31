@@ -11,8 +11,8 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -27,10 +27,10 @@ class Ui_RecipePageTypeOne
 public:
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QGraphicsView *imageGraphicsView;
     QPushButton *backButton;
     QPushButton *nextButton;
     QTextBrowser *recipeTextField;
+    QListWidget *ingredientsList;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -43,11 +43,6 @@ public:
         centralwidget->setObjectName("centralwidget");
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName("gridLayout");
-        imageGraphicsView = new QGraphicsView(centralwidget);
-        imageGraphicsView->setObjectName("imageGraphicsView");
-
-        gridLayout->addWidget(imageGraphicsView, 0, 0, 1, 1);
-
         backButton = new QPushButton(centralwidget);
         backButton->setObjectName("backButton");
 
@@ -62,6 +57,12 @@ public:
         recipeTextField->setObjectName("recipeTextField");
 
         gridLayout->addWidget(recipeTextField, 0, 1, 1, 1);
+
+        ingredientsList = new QListWidget(centralwidget);
+        ingredientsList->setObjectName("ingredientsList");
+        ingredientsList->setMaximumSize(QSize(200, 16777215));
+
+        gridLayout->addWidget(ingredientsList, 0, 0, 1, 1);
 
         RecipePageTypeOne->setCentralWidget(centralwidget);
         menubar = new QMenuBar(RecipePageTypeOne);
